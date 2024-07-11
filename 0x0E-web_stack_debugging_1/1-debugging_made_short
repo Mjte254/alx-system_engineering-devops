@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-#make it short
-apt-get -y update
-apt-get install -y nginx
-sudo service nginx start
+nstalling new server to serve content
+./0-nginx_likes_port_80
+echo "hi" > /var/run/nginx.pid
+echo "hi" > /run/nginx.pid
