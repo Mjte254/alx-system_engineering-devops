@@ -11,5 +11,12 @@ var=$(hostname)
 	mkdir -p /var/www/html
 	echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 	sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
+# Your web-02 server are returning a custom X-Served-By in their HTTP response.
+curl -sI http://34.198.248.145 | grep -i X-Served-By
+
+#Your web-01 server are returning a custom X-Served-By in their HTTP response.
+curl -sI http://34.207.222.131 | grep -i34.207.222.131	
+
 	sudo sed -i -E "s/^server \{/$new_string2/" /etc/nginx/sites-available/default
+	
 	sudo service nginx start
