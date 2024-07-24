@@ -1,29 +1,40 @@
 #!/usr/bin/env bash
-# Configures  Nginx so that its HTTP response contains a custom header 
+# Customizing a 404-error_page
+
+# Updating Packages before performing installations
 sudo apt-get update
-sudo apt-get install -y nginx 
-sudo ufw allow 'Nginx Http'
+sudo apt-get install -y nginx
 
-HOSTNAME=$(hostname)
+# Creating an index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-echo "hello world" > /var/www/html/index.html
+# Creating a 404 Custom error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+new_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
 
-echo "server {
-	listen 80 default_server;
+printf %s "server {
+	listen 80;
 	listen [::]:80 default_server;
+	add_header X-Served-by $HOSTNNAME;
 
-	root /var/www/html;
-        index index.html index.htm;
+	root  /etc/nginx/html;
+	index index.html index.htm;
 
-	server_name _;
-	add_header X-Served-By $HOSTNAME;
-        location / {
-        try_files $uri $uri/ =404;
-    }
-}" > default_file
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
 
-mv -f default_file /etc/nginx/sites-available/default
+	error_page 404 /404.html;
+	location /404 {
+		root /etc/nginx/html;
+		internal;
+	}
+}" > /etc/nginx/sites-available/default
 
-sudo systemctl restart nginx
+# Testing configurations for syntax errors
+sudo nginx -t
+
+# Restart nginx after implementing changes
+sudo service nginx restart
