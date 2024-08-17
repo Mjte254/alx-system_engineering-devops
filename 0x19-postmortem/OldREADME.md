@@ -7,14 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="Holberton School">
+    <meta name="description" content="Alx">
     <link rel="icon" href="../../favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <title>Holberton School's awesome intranet</title>
+    <title>Alx School's awesome intranet</title>
 
     <link rel="stylesheet" media="all" href="/assets/application-fcf253a320a4d7ef88f13d4336f3556cbc4462462d5140419fa34fec42b116e8.css" />
       <script src="/assets/application-f5831b8e650d0d1c3eeca49c507dc0a66844f79567c80cd11829fe66e130fedc.js"></script>
