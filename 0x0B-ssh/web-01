@@ -7,4 +7,4 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/school
 
 # Attempt to connect to the server
-ssh -v ubuntu@100.26.158.165
+ssh -v ubuntu@100.25.28.203
