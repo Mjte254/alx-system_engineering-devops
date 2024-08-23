@@ -40,5 +40,5 @@ frontend  Mjte254-https
 
 backend app
     balance roundrobin
-    server 335227-web-01 100.26.158.165:80 check
-    server 335227-web-02 54.146.58.54:80 check
+    server 335227-web-01 100.25.28.203:80 check
+    server 335227-web-02 100.25.204.114:80 check
